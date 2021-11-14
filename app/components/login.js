@@ -1,108 +1,83 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {alertActions, msgActions} from '@actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { alertActions, msgActions } from '@actions';
 import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  Button,
-  StatusBar,
+    SafeAreaView,
+    StyleSheet,
+    View,
+    Text,
+    Pressable,
+    Image
 } from 'react-native';
-
-import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
+import theme from './../../app_theme.json';
 
 class Login extends Component {
-  state = {text: 'h'};
+    state = { text: 'h' };
 
-  buttonClick = () => {
-    this.props.navigation.replace("Home")
+    buttonClick = () => {
+        this.props.navigation.replace("Home")
+    };
 
+    render() {
+        return (
+            <SafeAreaView style={{ backgroundColor: theme.primary, flex: 1 }}>
+                <View style={styles.body}>
+                    <Image
+                        style={{
+                            width: 40,
+                            height: 40,
+                            borderRadius: 40 / 2,
+                            overflow: "hidden",
+                            borderColor: "red"
 
-  };
+                        }}
+                        source={{
+                            uri: 'https://picsum.photos/200',
+                        }}
+                    />
+                    <Pressable
+                        style={styles.submit}
+                        onPress={() => this.buttonClick()}
+                    >
+                        <Text style={styles.sectionTitle}>The Hub</Text>
+                    </Pressable>
+                </View>
+            </SafeAreaView>
 
-  render() {
-    return (
-      <>
-        <StatusBar barStyle="dark-content" />
-        <SafeAreaView>
-          <ScrollView
-            contentInsetAdjustmentBehavior="automatic"
-            style={styles.scrollView}>
-           
-            <View style={styles.body}>
-              <Button
-                style={styles.submit}
-                onPress={() => this.buttonClick()}
-                title="Go to Home"
-              />
-              <Text style={styles.sectionTitle}>{this.props.message}</Text>
-            </View>
-          </ScrollView>
-        </SafeAreaView>
-      </>
-    );
-  }
+        );
+    }
 }
 
 const styles = StyleSheet.create({
-  scrollView: {
-    backgroundColor: Colors.lighter,
-  },
-  engine: {
-    position: 'absolute',
-    right: 0,
-  },
-  body: {
-    backgroundColor: Colors.white,
-  },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  submit: {
-    fontSize: 24,
-    color: Colors.red,
-    backgroundColor: Colors.black,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-    marginLeft: 20,
-    textAlign: 'center',
-    color: Colors.black,
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-    color: Colors.dark,
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-  footer: {
-    color: Colors.dark,
-    fontSize: 12,
-    fontWeight: '600',
-    padding: 4,
-    paddingRight: 12,
-    textAlign: 'right',
-  },
+    body: {
+        flex: 1,
+        justifyContent: 'center',
+        alignItems: 'center',
+        flexDirection: 'row',
+    },
+    sectionTitle: {
+        fontSize: 32,
+        fontWeight: '600',
+        marginLeft: 5,
+        textAlign: 'center',
+        color: "#FFF",
+    },
+
+
+
 });
 
 function mapState(state) {
-  const {message} = state;
-  return {message: message.message};
+    const { message } = state;
+    return { message: message.message };
 }
 const actionCreators = {
-  success: alertActions.success,
-  error: alertActions.error,
-  clear: alertActions.clear,
-  sendMessage: msgActions.sendMessage,
+    success: alertActions.success,
+    error: alertActions.error,
+    clear: alertActions.clear,
+    sendMessage: msgActions.sendMessage,
 };
 export default connect(
-  mapState,
-  actionCreators,
+    mapState,
+    actionCreators,
 )(Login);

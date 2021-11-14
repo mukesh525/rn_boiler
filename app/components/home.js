@@ -1,6 +1,6 @@
-import React, {Component} from 'react';
-import {connect} from 'react-redux';
-import {alertActions, msgActions} from '@actions';
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import { alertActions, msgActions } from '@actions';
 import {
   SafeAreaView,
   StyleSheet,
@@ -11,13 +11,14 @@ import {
   StatusBar,
 } from 'react-native';
 
-import {Header, Colors} from 'react-native/Libraries/NewAppScreen';
+import { Header, Colors } from 'react-native/Libraries/NewAppScreen';
 
 class Home extends Component {
-  state = {text: 'h'};
+  state = { text: 'h' };
 
   buttonClick = () => {
-    this.props.sendMessage('sucess');
+    this.props.navigation.replace("Login")
+    //this.props.sendMessage('sucess');
   };
 
   render() {
@@ -28,7 +29,7 @@ class Home extends Component {
           <ScrollView
             contentInsetAdjustmentBehavior="automatic"
             style={styles.scrollView}>
-           
+
             <View style={styles.body}>
               <Button
                 style={styles.submit}
@@ -91,8 +92,8 @@ const styles = StyleSheet.create({
 });
 
 function mapState(state) {
-  const {message} = state;
-  return {message: message.message};
+  const { message } = state;
+  return { message: message.message };
 }
 const actionCreators = {
   success: alertActions.success,

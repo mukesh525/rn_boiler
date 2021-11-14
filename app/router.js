@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, { Component } from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 import Home from '@screen/home';
@@ -18,12 +18,12 @@ export default class Navigation extends Component {
       <NavigationContainer>
         <RootStack.Navigator initialRouteName="Login" >
           <RootStack.Screen name="Home" component={Home} />
-          <RootStack.Screen name="Login" component={Login} />
+          <RootStack.Screen name="Login" component={Login} options={{ headerShown: false }} />
           {/* <RootStack.Screen name="HomeScreen" component={HomeScreen} />
           <RootStack.Screen name="SearchScreen" component={SearchScreen} />
           <RootStack.Screen options={{ headerLeft: () => { return null; }, headerShown: false }} name="ChatScreen" component={ChatScreen} />
         */}
-          </RootStack.Navigator>
+        </RootStack.Navigator>
       </NavigationContainer>
     );
   }
