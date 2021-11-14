@@ -11,7 +11,7 @@ import {
 } from 'react-native';
 import theme from './../../app_theme.json';
 
-class Login extends Component {
+class Signup extends Component {
     state = { text: 'h' };
 
     buttonClick = () => {
@@ -80,4 +80,4 @@ const actionCreators = {
 export default connect(
     mapState,
     actionCreators,
-)(Login);
+)(Signup);

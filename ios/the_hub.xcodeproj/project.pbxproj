@@ -114,7 +114,6 @@
 				4AE6B55AEC28C0325CFF0CD3 /* Pods-the_hub-the_hubTests.debug.xcconfig */,
 				DFF767937F6DBCD90AC49ECD /* Pods-the_hub-the_hubTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
