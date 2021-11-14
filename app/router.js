@@ -19,7 +19,7 @@ export default class Navigation extends Component {
     return (
       <NavigationContainer>
         <RootStack.Navigator initialRouteName="Login" >
-          <RootStack.Screen name="Home" component={Home} />
+          <RootStack.Screen name="Home" component={Home} options={{ headerShown: false }} />
           <RootStack.Screen name="Login" component={Login} options={{ headerShown: false }} />
           <RootStack.Screen name="ForgotPassword" component={ForgotPassword} options={{ headerShown: false }} />
           <RootStack.Screen name="Signup" component={Signup} options={{ headerShown: false }} />
