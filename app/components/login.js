@@ -6,11 +6,13 @@ import {
     StyleSheet,
     View,
     Text,
-    Pressable,
+    TouchableOpacity,
     Image,
 } from 'react-native';
 import theme from './../../app_theme.json';
 import { AppInputText, Button } from '@common'
+import Icon from 'react-native-vector-icons/FontAwesome';
+import FeatherIcon from 'react-native-vector-icons/Feather';
 
 class Login extends Component {
     state = { email: '', password: '' };
@@ -28,14 +30,29 @@ class Login extends Component {
                 <View style={styles.body}>
                     <AppInputText
                         type="email-address"
+                        icon={<Icon style={styles.searchIcon} name="envelope-o" size={20} color="#616161" />}
                         hint="Email address"
                         value={this.state.email}
                         onChangeText={(email) => this.setState({ email })}
                     />
                     <AppInputText
                         hint="Password"
+                        icon={<FeatherIcon style={styles.searchIcon} name="lock" size={20} color="#616161" />}
                         value={this.state.password}
                         onChangeText={(password) => this.setState({ password })} />
+                    <TouchableOpacity
+                        activeOpacity={0.4}
+                        style={{ alignSelf: 'flex-end', paddingHorizontal: 30, }}
+                        onPress={() => this.props.navigation.replace("Home")}>
+                        <Text style={{
+                            color: '#616161',
+                            fontSize: 15,
+                            textAlign: 'right',
+                            paddingVertical: 8,
+                        }}>
+                            Forgot Password ?
+                        </Text>
+                    </TouchableOpacity >
 
                     <Button
                         style={styles.submit}

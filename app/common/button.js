@@ -18,7 +18,7 @@ export const Button = ({ onPress, style, title }) => {
 const styles = StyleSheet.create({
     button: {
         // flex: 1,
-        marginTop: 20,
+        marginTop: 10,
         width: '90%',
         justifyContent: 'center',
         flexDirection: 'column',

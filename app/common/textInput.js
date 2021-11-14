@@ -1,19 +1,25 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, TextInput } from "react-native";
+import { View, StyleSheet, TextInput } from "react-native";
 
-export const AppInputText = ({ value, onChangeText, style, type, hint }) => {
+
+export const AppInputText = ({ value, onChangeText, style, type, hint, icon }) => {
     // const [text, onChangeText] = React.useState(value);
     // const [number, onChangeNumber] = React.useState(null);
 
     return (
-        <TextInput
-            style={[styles.input, style]}
-            onChangeText={onChangeText}
-            value={value}
-            placeholder={hint}
-            keyboardType={type}
+        <View style={styles.input}>
+            {icon}
+            <TextInput
+                style={[{ marginLeft: 10 }, style]}
+                onChangeText={onChangeText}
+                value={value}
+                leftIcon={{ type: 'font-awesome', name: 'comment' }}
+                underlineColorAndroid="transparent"
+                placeholder={hint}
+                keyboardType={type}
 
-        />
+            />
+        </View>
     );
 };
 
@@ -27,6 +33,8 @@ const styles = StyleSheet.create({
         fontSize: 15,
         color: '#616161',
         padding: 15,
+
+        flexDirection: 'row'
     },
 });
 
