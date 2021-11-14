@@ -28,22 +28,25 @@ class Login extends Component {
                     <Text style={styles.sectionTitle}>The Hub</Text>
                 </View>
                 <View style={styles.body}>
+
                     <AppInputText
                         type="email-address"
-                        icon={<Icon style={styles.searchIcon} name="envelope-o" size={20} color="#616161" />}
+                        icon={<Icon name="envelope-o" size={20} color="#616161" />}
                         hint="Email address"
                         value={this.state.email}
                         onChangeText={(email) => this.setState({ email })}
                     />
+
                     <AppInputText
                         hint="Password"
-                        icon={<FeatherIcon style={styles.searchIcon} name="lock" size={20} color="#616161" />}
+                        icon={<FeatherIcon name="lock" size={20} color="#616161" />}
                         value={this.state.password}
                         onChangeText={(password) => this.setState({ password })} />
+
                     <TouchableOpacity
                         activeOpacity={0.4}
                         style={{ alignSelf: 'flex-end', paddingHorizontal: 30, }}
-                        onPress={() => this.props.navigation.replace("Home")}>
+                        onPress={() => this.props.navigation.replace("ForgotPassword")}>
                         <Text style={{
                             color: '#616161',
                             fontSize: 15,

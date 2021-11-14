@@ -39,7 +39,7 @@ class ForgotPassword extends Component {
                         style={styles.submit}
                         onPress={() => this.buttonClick()}
                     >
-                        <Text style={styles.sectionTitle}>GOT TO HOME</Text>
+                        <Text style={styles.sectionTitle}>ForgotPassword</Text>
                     </Pressable>
                 </View>
             </SafeAreaView>
